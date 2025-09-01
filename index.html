@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TokenWallet - Recargas para Free Fire y Roblox</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #0dcaf0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            transition: all 0.3s ease;
+        }
+
+        .navbar-scrolled {
+            background-color: #fff !important;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Hero section with video background */
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 0;
+        }
+
+        .hero-content {
+            z-index: 1;
+            color: white;
+        }
+
+        /* Payment methods section */
+        .payment-methods {
+            padding: 60px 0;
+            background-color: #f8f9fa;
+        }
+
+        .payment-icon {
+            font-size: 2.5rem;
+            margin: 15px;
+            color: #495057;
+            transition: transform 0.3s ease;
+        }
+
+        .payment-icon:hover {
+            transform: scale(1.1);
+            color: var(--primary-color);
+        }
+
+        /* Products section */
+        .products {
+            padding: 80px 0;
+        }
+
+        .game-section {
+            margin-bottom: 80px;
+        }
+
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        }
+
+        /* Sellers section */
+        .sellers {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .seller-card {
+            transition: transform 0.3s ease;
+        }
+
+        .seller-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #212529;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-column {
+            padding: 0 30px;
+        }
+
+        .footer-divider {
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* WhatsApp button animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .footer-divider {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding-bottom: 30px;
+                margin-bottom: 30px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .lead {
+                font-size: 1.2rem;
+            }
+        }
+
+
+
+        .about-us {
+    background-color: #f8f9fa;
+}
+
+.about-us h2 {
+    color: #0d6efd;
+    font-weight: 700;
+}
+
+.about-us .lead {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+    </style>
+
+    <link rel="icon" href="Diseño sin título (7).ico" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">T O K E N W A L L E T </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#productos">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#vendedores">Vendedores</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Video Background -->
+    <section id="inicio" class="hero">
+        <div class="hero-overlay"></div>
+        <video class="video-background" autoplay muted loop>
+            <source src="videoplayback.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-lg-8 text-center hero-content">
+                    <h1 class="display-3 fw-bold mb-4">TokenWallet</h1>
+                    <p class="lead mb-5 fs-4">La forma más rápida y segura de recargar tus juegos favoritos</p>
+                    <a href="#productos" class="btn btn-primary btn-lg px-5 py-3 fs-5 pulse">Ver Productos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section -->
+    <section class="payment-methods">
+        <div class="container text-center">
+            <h2 class="mb-5 fade-in">Métodos de Pago</h2>
+            <div class="row justify-content-center fade-in">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <i class="bi bi-credit-card payment-icon"></i>
+                    <p>Banca mobil</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <i class="bi bi-credit-card payment-icon"></i>
+                    <p>Billeteras mobiles</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <i class="bi bi-bank payment-icon"></i>
+                    <p>Transferencia</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <i class="bi bi-cash payment-icon"></i>
+                    <p>Tigo money</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <i class="bi bi-wallet payment-icon"></i>
+                    <p>QR</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="about-us py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0 fade-in">
+                    <img src="targeta1.png" alt="Sobre Nosotros"
+                        class="img-fluid rounded shadow">
+                </div>
+                <div class="col-md-6 fade-in">
+                    <h2 class="mb-4">Sobre Nosotros</h2>
+                    <p class="lead">
+                        Somos un medio de compras por internet que facilita las transacciones y compras de robux y free
+                        fire,
+                        estableciendo la confianza y seguridad desde el inicio. Llevamos operando 2 años en el mercado a
+                        nivel Bolivia,
+                        satisfaciendo las necesidades de miles de clientes entre jóvenes y padres de familia.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="productos" class="products">
+        <div class="container">
+            <!-- Free Fire Section -->
+            <div class="game-section fade-in">
+                <h2 class="text-center mb-5">Free Fire </h2>
+                <div class="row g-4">
+                    <!-- Free Fire Product Cards -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card product-card h-100">
+                            <img src="https://cdn-www.bluestacks.com/bs-images/FreeFire_Guide_DiamondsGuide_ES_2.jpg"
+                                class="card-img-top" alt="Free Fire 100 Diamantes">
+                            <div class="card-body">
+                                <h5 class="card-title">100💎 + 10 bonus</h5>
+                                <p class="card-text">Recarga instantánea de diamantes para Free Fire</p>
+                                <p class="fw-bold text-primary">10 Bs</p>
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#buyModal"
+                                    data-product="100💎 + 10 bonus Free Fire" data-price="10">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card product-card h-100">
+                            <img src="https://cdn-www.bluestacks.com/bs-images/FreeFire_Guide_DiamondsGuide_ES_2.jpg"
+                                class="card-img-top" alt="Free Fire 310 Diamantes">
+                            <div class="card-body">
+                                <h5 class="card-title">310💎 + 31 bonus</h5>
+                                <p class="card-text">Recarga instantánea de diamantes para Free Fire</p>
+                                <p class="fw-bold text-primary">31 Bs</p>
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#buyModal"
+                                    data-product="310💎 + 31 bonus Free Fire" data-price="31">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card product-card h-100">
+                            <img src="https://cdn-www.bluestacks.com/bs-images/FreeFire_Guide_DiamondsGuide_ES_2.jpg"
+                                class="card-img-top" alt="Free Fire 520 Diamantes">
+                            <div class="card-body">
+                                <h5 class="card-title">520💎 + 52 bonus</h5>
+                                <p class="card-text">Recarga instantánea de diamantes para Free Fire</p>
+                                <p class="fw-bold text-primary">52 Bs</p>
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#buyModal"
+                                    data-product="520💎 + 52 bonus Free Fire" data-price="52">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card product-card h-100">
+                            <img src="https://cdn-www.bluestacks.com/bs-images/FreeFire_Guide_DiamondsGuide_ES_2.jpg"
+                                class="card-img-top" alt="Free Fire 1060 Diamantes">
+                            <div class="card-body">
+                                <h5 class="card-title">1060💎 + 106 bonus</h5>
+                                <p class="card-text">Recarga instantánea de diamantes para Free Fire</p>
+                                <p class="fw-bold text-primary">89 Bs</p>
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#buyModal"
+                                    data-product="1060💎 + 106 bonus Free Fire" data-price="89">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card product-card h-100">
+                            <img src="https://cdn-www.bluestacks.com/bs-images/FreeFire_Guide_DiamondsGuide_ES_2.jpg"
+                                class="card-img-top" alt="Free Fire 2180 Diamantes">
+                            <div class="card-body">
+                                <h5 class="card-title">2180💎 + 218 bonus</h5>
+                                <p class="card-text">Recarga instantánea de diamantes para Free Fire</p>
+                                <p class="fw-bold text-primary">175 Bs</p>
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#buyModal"
+                                    data-product="2180💎 + 218 bonus Free Fire" data-price="175">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card product-card h-100">
+                            <img src="https://cdn-www.bluestacks.com/bs-images/FreeFire_Guide_DiamondsGuide_ES_2.jpg"
+                                class="card-img-top" alt="Free Fire 5600 Diamantes">
+                            <div class="card-body">
+                                <h5 class="card-title">5600💎 + 560 bonus</h5>
+                                <p class="card-text">Recarga instantánea de diamantes para Free Fire</p>
+                                <p class="fw-bold text-primary">450 Bs</p>
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#buyModal"
+                                    data-product="5600💎 + 560 bonus Free Fire" data-price="450">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card product-card h-100">
+                            <img src="https://cdn-www.bluestacks.com/bs-images/FreeFire_Guide_DiamondsGuide_ES_2.jpg"
+                                class="card-img-top" alt="Free Fire Pase Semanal">
+                            <div class="card-body">
+                                <h5 class="card-title">Pase Semanal 🪪</h5>
+                                <p class="card-text">Pase semanal de Free Fire</p>
+                                <p class="fw-bold text-primary">24 Bs</p>
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#buyModal"
+                                    data-product="Pase Semanal Free Fire" data-price="24">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card product-card h-100">
+                            <img src="https://cdn-www.bluestacks.com/bs-images/FreeFire_Guide_DiamondsGuide_ES_2.jpg"
+                                class="card-img-top" alt="Free Fire Pase Mensual">
+                            <div class="card-body">
+                                <h5 class="card-title">Pase Mensual 🪪</h5>
+                                <p class="card-text">Pase mensual de Free Fire</p>
+                                <p class="fw-bold text-primary">89 Bs</p>
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#buyModal"
+                                    data-product="Pase Mensual Free Fire" data-price="89">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Roblox Section -->
+            <div class="game-section fade-in">
+                <h2 class="text-center mb-5">Roblox </h2>
+                <div class="row g-4">
+                    <!-- Roblox Product Cards -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card product-card h-100">
+                            <img src="https://th.bing.com/th/id/R.7869b71a5540fdf4f903fd6102145f9f?rik=CLAV%2bm9pG%2fvX9w&pid=ImgRaw&r=0"
+                                class="card-img-top" alt="Roblox 40 Robux">
+                            <div class="card-body">
+                                <h5 class="card-title">40 Robux</h5>
+                                <p class="card-text">Recarga instantánea de Robux para Roblox</p>
+                                <p class="fw-bold text-primary">9.50 Bs</p>
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#buyModal"
+                                    data-product="40 Robux Roblox" data-price="9.50">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card product-card h-100">
+                            <img src="https://th.bing.com/th/id/R.7869b71a5540fdf4f903fd6102145f9f?rik=CLAV%2bm9pG%2fvX9w&pid=ImgRaw&r=0"
+                                class="card-img-top" alt="Roblox 80 Robux">
+                            <div class="card-body">
+                                <h5 class="card-title">80 Robux</h5>
+                                <p class="card-text">Recarga instantánea de Robux para Roblox</p>
+                                <p class="fw-bold text-primary">18 Bs</p>
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#buyModal"
+                                    data-product="80 Robux Roblox" data-price="18">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card product-card h-100">
+                            <img src="https://th.bing.com/th/id/R.7869b71a5540fdf4f903fd6102145f9f?rik=CLAV%2bm9pG%2fvX9w&pid=ImgRaw&r=0"
+                                class="card-img-top" alt="Roblox 120 Robux">
+                            <div class="card-body">
+                                <h5 class="card-title">120 Robux</h5>
+                                <p class="card-text">Recarga instantánea de Robux para Roblox</p>
+                                <p class="fw-bold text-primary">28.5 Bs</p>
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#buyModal"
+                                    data-product="120 Robux Roblox" data-price="28.5">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card product-card h-100">
+                            <img src="https://th.bing.com/th/id/R.7869b71a5540fdf4f903fd6102145f9f?rik=CLAV%2bm9pG%2fvX9w&pid=ImgRaw&r=0"
+                                class="card-img-top" alt="Roblox 160 Robux">
+                            <div class="card-body">
+                                <h5 class="card-title">160 Robux</h5>
+                                <p class="card-text">Recarga instantánea de Robux para Roblox</p>
+                                <p class="fw-bold text-primary">36 Bs</p>
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#buyModal"
+                                    data-product="160 Robux Roblox" data-price="36">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card product-card h-100">
+                            <img src="https://th.bing.com/th/id/R.7869b71a5540fdf4f903fd6102145f9f?rik=CLAV%2bm9pG%2fvX9w&pid=ImgRaw&r=0"
+                                class="card-img-top" alt="Roblox 240 Robux">
+                            <div class="card-body">
+                                <h5 class="card-title">240 Robux</h5>
+                                <p class="card-text">Recarga instantánea de Robux para Roblox</p>
+                                <p class="fw-bold text-primary">54 Bs</p>
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#buyModal"
+                                    data-product="240 Robux Roblox" data-price="54">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card product-card h-100">
+                            <img src="https://th.bing.com/th/id/R.7869b71a5540fdf4f903fd6102145f9f?rik=CLAV%2bm9pG%2fvX9w&pid=ImgRaw&r=0"
+                                class="card-img-top" alt="Roblox 320 Robux">
+                            <div class="card-body">
+                                <h5 class="card-title">320 Robux</h5>
+                                <p class="card-text">Recarga instantánea de Robux para Roblox</p>
+                                <p class="fw-bold text-primary">72 Bs</p>
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#buyModal"
+                                    data-product="320 Robux Roblox" data-price="72">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card product-card h-100">
+                            <img src="https://th.bing.com/th/id/R.7869b71a5540fdf4f903fd6102145f9f?rik=CLAV%2bm9pG%2fvX9w&pid=ImgRaw&r=0"
+                                class="card-img-top" alt="Roblox 400 Robux">
+                            <div class="card-body">
+                                <h5 class="card-title">400 Robux</h5>
+                                <p class="card-text">Recarga instantánea de Robux para Roblox</p>
+                                <p class="fw-bold text-primary">81.6 Bs</p>
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#buyModal"
+                                    data-product="400 Robux Roblox" data-price="81.6">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card product-card h-100">
+                            <img src="https://th.bing.com/th/id/R.7869b71a5540fdf4f903fd6102145f9f?rik=CLAV%2bm9pG%2fvX9w&pid=ImgRaw&r=0"
+                                class="card-img-top" alt="Roblox 500 Robux">
+                            <div class="card-body">
+                                <h5 class="card-title">400 + 100 Robux</h5>
+                                <p class="card-text">Recarga instantánea de Robux para Roblox</p>
+                                <p class="fw-bold text-primary">95.24 Bs</p>
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#buyModal"
+                                    data-product="400 + 100 Robux Roblox" data-price="95.24">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card product-card h-100">
+                            <img src="https://th.bing.com/th/id/R.7869b71a5540fdf4f903fd6102145f9f?rik=CLAV%2bm9pG%2fvX9w&pid=ImgRaw&r=0"
+                                class="card-img-top" alt="Roblox 1000 Robux">
+                            <div class="card-body">
+                                <h5 class="card-title">800 + 200 Robux</h5>
+                                <p class="card-text">Recarga instantánea de Robux para Roblox</p>
+                                <p class="fw-bold text-primary">179.84 Bs</p>
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#buyModal"
+                                    data-product="800 + 200 Robux Roblox" data-price="179.84">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card product-card h-100">
+                            <img src="https://th.bing.com/th/id/R.7869b71a5540fdf4f903fd6102145f9f?rik=CLAV%2bm9pG%2fvX9w&pid=ImgRaw&r=0"
+                                class="card-img-top" alt="Roblox 2000 Robux">
+                            <div class="card-body">
+                                <h5 class="card-title">1700 + 300 Robux</h5>
+                                <p class="card-text">Recarga instantánea de Robux para Roblox</p>
+                                <p class="fw-bold text-primary">349.83 Bs</p>
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#buyModal"
+                                    data-product="1700 + 300 Robux Roblox" data-price="349.83">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card product-card h-100">
+                            <img src="https://th.bing.com/th/id/R.7869b71a5540fdf4f903fd6102145f9f?rik=CLAV%2bm9pG%2fvX9w&pid=ImgRaw&r=0"
+                                class="card-img-top" alt="Roblox Suscripción Premium">
+                            <div class="card-body">
+                                <h5 class="card-title">Suscripción Premium</h5>
+                                <p class="card-text">Suscripción premium de Roblox</p>
+                                <p class="fw-bold text-primary">125 Bs</p>
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#buyModal"
+                                    data-product="Suscripción Premium Roblox" data-price="125">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Verified Sellers Section -->
+    <section id="vendedores" class="sellers">
+        <div class="container">
+            <h2 class="text-center mb-5 fade-in">Vendedores Verificados</h2>
+            <div class="row justify-content-center mb-5 fade-in">
+                <div class="col-lg-8 text-center">
+                    <p class="lead">Nuestros vendedores son 100% confiables, seguros y con precios fijos. Garantizamos
+                        entrega inmediata después del pago.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center g-4 fade-in">
+                <div class="col-md-6">
+                    <div class="card seller-card h-100">
+                        <div class="card-body text-center p-4">
+                            <img src="logos-_1_.ico" class="rounded-circle mb-3" alt="Diego">
+                            <h4 class="card-title">Diego</h4>
+                            <p class="card-text"><i class="bi bi-telephone-fill me-2"></i>61541084</p>
+                            <p class="card-text">Vendedor verificado con más de 3 años de experiencia en recargas de
+                                Free Fire y Roblox.</p>
+                            <a href="https://wa.me/61541084?text=Hola%20Diego,%20estoy%20interesado%20en%20comprar%20recargas"
+                                class="btn btn-primary mt-3" target="_blank">Contactar por WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card seller-card h-100">
+                        <div class="card-body text-center p-4">
+                            <img src="logos-_3_.ico" class="rounded-circle mb-3" alt="Rafael">
+                            <h4 class="card-title">Rafael</h4>
+                            <p class="card-text"><i class="bi bi-telephone-fill me-2"></i>63411756</p>
+                            <p class="card-text">Especialista en recargas rápidas con atención personalizada 24/7 para
+                                tus juegos favoritos.</p>
+                            <a href="https://wa.me/61541084?text=Hola%20Rafael,%20estoy%20interesado%20en%20comprar%20recargas"
+                                class="btn btn-primary mt-3" target="_blank">Contactar por WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 footer-column footer-divider">
+                    <h5>Redes Sociales</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#"><i class="bi bi-whatsapp me-2"></i>WhatsApp</a></li>
+                        <li><a href="#"><i class="bi bi-tiktok me-2"></i>TikTok</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer-column footer-divider">
+                    <h5>Juegos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Free Fire</a></li>
+                        <li><a href="#">Roblox</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer-column">
+                    <h5>Vendedores Autorizados</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Diego - 61541084</a></li>
+                        <li><a href="#">Rafael - 63411756</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2025 TokenWallet. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Buy Modal -->
+    <div class="modal fade" id="buyModal" tabindex="-1" aria-labelledby="buyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="buyModalLabel">Selecciona un Vendedor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center">Producto: <span id="selectedProduct"></span></p>
+                    <p class="text-center">Precio: <span id="selectedPrice"></span> Bs</p>
+                    <div class="row mt-4">
+                        <div class="col-md-6 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <img src="-------" class="rounded-circle mb-3">
+                                    <h5 class="card-title">Diego</h5>
+                                    <p class="card-text"><i class="bi bi-telephone-fill me-2"></i>61541084</p>
+                                    <button class="btn btn-primary w-100" id="buyDiego">Realizar Compra</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <img src="--------" class="rounded-circle mb-3">
+                                    <h5 class="card-title">Rafael</h5>
+                                    <p class="card-text"><i class="bi bi-telephone-fill me-2"></i>63411756</p>
+                                    <button class="btn btn-primary w-100" id="buyRafael">Realizar Compra</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                }
+            });
+
+            // Buy modal functionality
+            const buyModal = document.getElementById('buyModal');
+            if (buyModal) {
+                buyModal.addEventListener('show.bs.modal', function (event) {
+                    const button = event.relatedTarget;
+                    const product = button.getAttribute('data-product');
+                    const price = button.getAttribute('data-price');
+
+                    document.getElementById('selectedProduct').textContent = product;
+                    document.getElementById('selectedPrice').textContent = price;
+
+                    // Set up WhatsApp links
+                    const message = `Hola, estoy interesado en comprar: ${product} por ${price} Bs`;
+                    const encodedMessage = encodeURIComponent(message);
+
+                    document.getElementById('buyDiego').onclick = function () {
+                        window.open(`https://wa.me/61541084?text=${encodedMessage}`, '_blank');
+                    };
+
+                    document.getElementById('buyRafael').onclick = function () {
+                        window.open(`https://wa.me/63411756?text=${encodedMessage}`, '_blank');
+                    };
+                });
+            }
+
+            // Scroll animations
+            const fadeElements = document.querySelectorAll('.fade-in');
+
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+
+            // Check on load and scroll
+            window.addEventListener('scroll', checkFade);
+            checkFade(); // Initial check
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
